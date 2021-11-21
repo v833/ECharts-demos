@@ -8,6 +8,7 @@
     
   </div>
 </template>
+
   <template #footer>
     <span>昨日订单量：</span>
     <span class="emphasis">2,000,000</span>

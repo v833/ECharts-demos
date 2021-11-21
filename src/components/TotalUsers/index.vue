@@ -1,5 +1,8 @@
 <template>
-  <common-card />
+  <common-card
+    title="今日交易用户数"
+    value="81,014"
+   />
 </template>
 
 <script>
