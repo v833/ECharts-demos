@@ -1,10 +1,7 @@
 <template>
   <common-card title="累计用户数" value="1,081,014">
     <template>
-      <div
-        id="total-users-chart"
-        :style="{ width: '100%', height: '100%' }"
-      ></div>
+      <v-chart :option="getOptions()" />
     </template>
     <template #footer>
       <div class="total-users-footer">
@@ -23,45 +20,46 @@
 import commonCardMixin from "../../mixins/CommonCardMixin";
 export default {
   mixins: [commonCardMixin],
-  mounted() {
-    const chart = this.$echarts.init(
-      document.querySelector("#total-users-chart")
-    );
-    chart.setOption({
-      xAxis: {
-        type: "value",
-        show: false,
-      },
-      yAxis: {
-        type: "category",
-        show: false,
-      },
-      series: [
-        {
-          type: "bar",
-          stack: "总量",
-          data: [200],
-          barWidth: 10,
-          itemStyle: {
-            color: "#45c946",
-          },
+  methods: {
+    getOptions() {
+      return {
+        xAxis: {
+          type: "value",
+          show: false,
         },
-        {
-          type: "bar",
-          stack: "总量",
-          data: [250],
-          itemStyle: {
-            color: "#eee",
-          },
+        yAxis: {
+          type: "category",
+          show: false,
         },
-      ],
-      grid: {
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-      },
-    });
+        series: [
+          {
+            type: "bar",
+            stack: "总量",
+            data: [200],
+            barWidth: 10,
+            itemStyle: {
+              color: "#45c946",
+            },
+            layout: "cover",
+          },
+          {
+            type: "bar",
+            stack: "总量",
+            data: [250],
+            itemStyle: {
+              color: "#eee",
+            },
+            layout: "cover",
+          },
+        ],
+        grid: {
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+        },
+      };
+    },
   },
 };
 </script>

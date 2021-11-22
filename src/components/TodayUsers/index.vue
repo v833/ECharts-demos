@@ -1,10 +1,7 @@
 <template>
   <common-card title="今日交易用户数" value="81,014">
     <template>
-      <div
-        id="today-users-chart"
-        :style="{ width: '100%', height: '100%' }"
-      ></div>
+      <v-chart :option="getOptions()" />
     </template>
 
     <template #footer>
@@ -18,9 +15,9 @@
 import commonCardMixin from "../../mixins/CommonCardMixin";
 export default {
   mixins: [commonCardMixin],
-  mounted() {
-    const chart = this.$echarts.init(document.querySelector('#today-users-chart'))
-    chart.setOption({
+  methods: {
+    getOptions() {
+      return {
       color: ['#3398DB'],
       xAxis: {
         type: 'category',
@@ -41,8 +38,9 @@ export default {
         left:0,
         right: 0
       }
-    })
-  },
+    }
+    }
+  }
 };
 </script>
 
