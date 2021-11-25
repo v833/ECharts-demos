@@ -1,16 +1,16 @@
 <template>
   <div class="home">
     <Top-view />
-    <Map-view />
-    <Button-view />
     <Sales-view />
+    <Bottom-view />
+    <Map-view />
   </div>
 </template>
 
 <script>
 import TopView from "../components/TopView";
 import MapView from "../components/MapView";
-import ButtonView from "../components/ButtonView";
+import BottomView from "../components/BottomView";
 import SalesView from "../components/SalesView";
 
 export default {
@@ -18,7 +18,7 @@ export default {
   components: {
     TopView,
     MapView,
-    ButtonView,
+    BottomView,
     SalesView,
   },
 };
